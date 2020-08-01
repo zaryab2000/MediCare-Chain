@@ -1,5 +1,5 @@
 # Medical_Insurance_on_Ethereum_Blockchain
-Medical Insurance DAPP is a decentralized application built on top of Ethereum that aims to provide a HealthCare Solution by ensuring a transaparent and reliable system of providing insurance as well as donations to the patients, with utmost efficiency and zero involvement of any third party.
+MediCare Chain DAPP is a decentralized application built on top of Ethereum that aims to provide a HealthCare Solution by ensuring a transaparent and reliable system of providing insurance as well as donations to the patients, with utmost efficiency and zero involvement of any third party.
 
 It maintains a proper ledger of donations received, funds withdrawn as well as insurance details and stores them on Blockchain, thus ensuring immutability and security from any tamper with the financial records.
 
@@ -55,28 +55,9 @@ Step 3. Click “Add to Chrome” in the upper right.
 
 Step 4. Click “Add Extension” to complete the installation.
 
-#### Get a Ropsten Api Key
+Step 5. Connect to the Matic Network on Metamask.
 
-Step 1. Go to [Infura.io](https://infura.io/?utm_source=blog&utm_medium=Tutorial:%20Getting%20Started&utm_campaign=Tutorials)
 
-Step 2. Follow the steps mentioned here to get an Api key [Steps to get Infura Api](https://blog.infura.io/getting-started-with-infura-28e41844cc89/) 
-
-#### Set your API-KEY to Views.py
-```
-Step 1: Clone the repository -> git clone https://github.com/zaryab2000/Medical_Insurance_on_Ethereum_Blockchain
-
-Step 2: Go to main_app
-
-Step 3: Go to views.py
-
-Step 4: Go to Line 11 in views.py
-
-url = 'https://ropsten.infura.io/v3/<PASTE YOUR API KEY HERE>'
-
-Step 5: Paste your API-KEY on Line 09
-
-Step 6: Run the Django Server -> python3 manage.py runserver
-```
 
 
 
