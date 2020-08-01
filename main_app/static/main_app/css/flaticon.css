@@ -1,0 +1,35 @@
+  /*
+    Flaticon icon font: Flaticon
+    Creation date: 15/11/2017 02:11
+    */
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../fonts/flaticon/Flaticon.eot");
+  src: url("../fonts/flaticon/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/flaticon/Flaticon.woff") format("woff"),
+       url("../fonts/flaticon/Flaticon.ttf") format("truetype"),
+       url("../fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+  font-style: normal;
+}
+
+.flaticon-gym-control-of-exercises-with-a-list-on-a-clipboard-and-heart-beats:before { content: "\f100"; }
+.flaticon-price-tag:before { content: "\f101"; }
+.flaticon-shield-with-cross:before { content: "\f102"; }
+.flaticon-first-aid-kit:before { content: "\f103"; }
+.flaticon-microscope:before { content: "\f104"; }
+.flaticon-doctor:before { content: "\f105"; }

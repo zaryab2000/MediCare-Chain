@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blockchain Health Insurance DAPP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Free HTML5 Website Template by uicookies.com" />
+  <meta name="keywords" content="free bootstrap 4, free bootstrap 4 template, free website templates, free html5, free template, free website template, html5, css3, mobile first, responsive" />
+  <meta name="author" content="uicookies.com" />
+  
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css'%}">
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css'%}">
+  
+  <link rel="stylesheet" href="{% static 'main_app/css/owl.carousel.min.css'%}">
+  <link rel="stylesheet" href="{% static 'main_app/css/owl.theme.default.min.css'%}">
+
+  <link rel="stylesheet" href="{% static 'main_app/css/icomoon.css'%}">
+  <link rel="stylesheet" href="{% static 'main_app/css/flaticon.css'%}">
+  <link rel="stylesheet" href="{% static 'main_app/css/animate.css'%}">
+  <link rel="stylesheet" href="{% static 'main_app/css/bootstrap-datepicker.css'%}">
+  <link rel="stylesheet" href="{% static 'main_app/css/style.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'main_app/error.css' %}">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark probootstrap-navbar-dark">
+    <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="index.html">Health</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-nav" aria-controls="probootstrap-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="probootstrap-nav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active"><a href="{% url 'base' %}" class="nav-link pl-0">Home</a></li>
+          <li class="nav-item"><a href="{% url 'patientDatabase' %}" class="nav-link">Patient Data</a></li>
+          <li class="nav-item"><a href="{% url 'owner' %}" class="nav-link">Only For Admin</a></li>
+          <li class="nav-item"><a href="{% url 'base' %}" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="ml-auto">
+          <form action="#" method="get" class="probootstrap-search-form mb-sm-0 mb-3">
+            <div class="form-group">
+              <button class="icon submit"><span class="icon-magnifying-glass"></span></button>
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- END nav -->
+  <header role="banner" class="probootstrap-header py-5">
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-md-9">
+          <div class="float-md-right float-none">
+          <div class="probootstrap-contact-phone d-flex align-items-top mb-3 float-left">
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-5">
+          <h1 class="display-4">Blockchain Powered Health Insurance DAPP</h1>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<div class="wrapper row2">
+  <div id="container" class="clear">
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <section id="fof" class="clear">
+      <!-- ####################################################################################################### -->
+      <div class="hgroup clear">
+        <h1>404</h1>
+        <h2>Error ! <span>INVALID ACCESS</span></h2>
+      </div>
+      <h4>This Page Can Only be accessed by Approved Doctors.</h4>
+      <p><a href="{% url 'patients' %}">&laquo; Go Back</a> / <a href="{% url 'base'%}">Go Home &raquo;</a></p>
+      <!-- ####################################################################################################### -->
+    </section>
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+  </div>
+</div> 
+</body>
+</html>

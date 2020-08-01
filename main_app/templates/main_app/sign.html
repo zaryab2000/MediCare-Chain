@@ -1,0 +1,773 @@
+{% extends 'main_app/base_index.html' %}
+{% block scripts %}
+<script >
+var pid = "{{pid}}"
+var hash = "{{ipfsHash}}"
+var hashLink = `https://ipfs.io/ipfs/${hash}`
+var errorLink = "http://127.0.0.1:8000/error/"
+
+var doctor = "{{doctors}}"
+var doctors = doctor.toLowerCase()
+
+
+function getData(){
+	web3.eth.getAccounts((err,res)=>{
+		account = res[0]
+		check = doctors.includes(account)
+		
+		if(check){
+			window.location.replace(hashLink)
+		}
+		else{
+			window.location.replace(errorLink)
+		}
+	})
+}
+
+const abi = [
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "pid",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "insuredAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "newPatientCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "donor",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "pid",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amountReceived",
+        "type": "uint256"
+      }
+    ],
+    "name": "receivedDonation",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "pid",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "usedInsurance",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "docAddressList",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "doctorCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "doctorDetailList",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "docAdress",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "docName",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "docSpecialization",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "doctorList",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_pid",
+        "type": "address"
+      }
+    ],
+    "name": "doctorSign",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_pid",
+        "type": "address"
+      }
+    ],
+    "name": "donateAmount",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "donationHistoryList",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "pid",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "donorAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "time",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "patientName",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "donationTransferCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "donationTransferList",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "pid",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "time",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "patientName",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "donorCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "donorList",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getBalance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "patientList",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "time",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "insuranceAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "donatedAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "disease",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "doctorName",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "ipfsHash",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "doctorAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "patientID",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "pidAvailable",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "doctorSignature",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pidCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "pidList",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_docAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_spec",
+        "type": "string"
+      }
+    ],
+    "name": "setDoctor",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_disease",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_ipfsHash",
+        "type": "string"
+      }
+    ],
+    "name": "setPatientData",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_pid",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountRequired",
+        "type": "uint256"
+      }
+    ],
+    "name": "transferDonations",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "withdrawCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "withdrawHistoryList",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "pid",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "doctorName",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "time",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "patientName",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_pid",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountRequired",
+        "type": "uint256"
+      }
+    ],
+    "name": "withdrawInsurance",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
+
+const address = "0x9354d04e66386693CEAEC931bBDB7b1b369fF1A7"
+
+  contract = web3.eth.contract(abi).at(address)
+  contract.pidCount.call((err,res)=>{
+    if(err){
+      return console.log(err)
+    }
+    else{
+      return console.log(res.toString())
+    }
+  })
+function waitForReceipt(hash, cb) {
+    web3.eth.getTransactionReceipt(hash, function (err, receipt) {
+      if (err) {
+        error(err);
+      }
+      if (receipt !== null) {
+        // Transaction went through
+        if (cb) {
+          cb(receipt);
+        }
+      } else {
+        // Try again in 1 second
+        window.setTimeout(function () {
+          waitForReceipt(hash, cb);
+        }, 1000);
+      }
+    });
+  }
+  $(document).ready(function(){
+    $('#myForm').on('submit',function(e){
+        e.preventDefault();
+       
+        web3.eth.getAccounts(function get(err, res){
+          account = res[0]
+          
+         transaction = 
+        ({
+          from: account,
+          "gas": 900000,
+          "chainId": 3,
+          'gasPrice': web3.toWei(60,'Gwei'),
+        })
+
+
+        contract.doctorSign.sendTransaction(
+          pid,
+          transaction,
+          (error,result)=>{
+            if(error){
+              console.log(error)
+            }
+            else{
+              waitForReceipt(result, function(){
+                console.log(result)
+              })
+            }
+          }
+        )
+      })
+    });
+});
+
+
+
+</script>
+
+{% endblock scripts %}
+{% block content %}
+
+
+  <section class="mb-5" style="margin-top: 50px">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-5">
+          <h1 class="display-4">Sign and Aprrove the Patient's Condition</h1>
+        
+        </div>
+
+          <div class="col-md-9 pl-md-5 pb-5 pl-0 probootstrap-inside">
+          <h1 class="mt-4 mb-4">Check Medical Records for Confirmation</h1>
+            <div class="col-md-12">
+      
+                
+                  <button id="link" class="btn btn-primary" onclick="getData()">Check Records</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="probootstrap-services">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-md-3 pb-5 probootstrap-aside-stretch-left probootstrap-inside">
+          <div class="mb-3 pt-5">
+            <h2 class="h1">Important Note</h2>
+            <ul class="list-unstyled probootstrap-light mb-4">
+              <h2 class="h5">Only the Approved Doctors have the access to use this functionality.<br><br>If you aren't an Approved Doctor, DO NOT PROCEED</h2>
+
+              <li><a href="{% url 'base' %}">Go Back</a></li>
+  
+            </ul>
+          </div>
+        </div>
+      <div class="row d-flex justify-content-between">
+        <div class="col-md-9 pl-md-5 pb-5 pl-0 probootstrap-inside" style="margin-left: 500px; margin-top: 10px" >
+          <strong><h1 class="mt-4 mb-4">Sign as a Doctor</h1></strong>
+            <div class="col-md-12">
+              <form id="myForm" action="POST" class="probootstrap-form">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary" value="Sign Now">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="probootstrap-subscribe">
+    <div class="container-fluid">
+      <div class="row mb-5">
+        <div class="col-md-12">
+          <h2 class="h1 text-white">Subscribe Newsletter</h2>
+          <p class="lead text-white">Far far away, behind the word mountains, far from the countries Vokalia.</p>
+        </div>
+      </div>
+      <form action="#" method="post">
+        <div class="row">
+          <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Name">    
+          </div>
+          <div class="col-md-4 mb-md-0 mb-3">
+            <input type="text" class="form-control" placeholder="Email">
+          </div>
+          <div class="col-md-4">
+            <input type="submit" value="Subscribe" class="btn btn-primary btn-block">
+          </div>
+        
+        </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blockchain Health Insurance DAPP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Free HTML5 Website Template by uicookies.com" />
+  <meta name="keywords" content="free bootstrap 4, free bootstrap 4 template, free website templates, free html5, free template, free website template, html5, css3, mobile first, responsive" />
+  <meta name="author" content="uicookies.com" />
+  
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css'%}">
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css'%}">
+  
+  <link rel="stylesheet" href="{% static 'main_app/css/owl.carousel.min.css'%}">
+  <link rel="stylesheet" href="{% static 'main_app/css/owl.theme.default.min.css'%}">
+
+  <link rel="stylesheet" href="{% static 'main_app/css/icomoon.css'%}">
+  <link rel="stylesheet" href="{% static 'main_app/css/flaticon.css'%}">
+  <link rel="stylesheet" href="{% static 'main_app/css/animate.css'%}">
+  <link rel="stylesheet" href="{% static 'main_app/css/bootstrap-datepicker.css'%}">
+  <link rel="stylesheet" href="{% static 'main_app/css/style.css'%}">
+
+
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark probootstrap-navbar-dark">
+    <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="index.html">Health</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-nav" aria-controls="probootstrap-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="probootstrap-nav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active"><a href="{% url 'base' %}" class="nav-link pl-0">Home</a></li>
+          <li class="nav-item"><a href="{% url 'patientDatabase' %}" class="nav-link">Patient Data</a></li>
+          <li class="nav-item"><a href="{% url 'owner' %}" class="nav-link">Only For Admin</a></li>
+          <li class="nav-item"><a href="{% url 'base' %}" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="ml-auto">
+          <form action="#" method="get" class="probootstrap-search-form mb-sm-0 mb-3">
+            <div class="form-group">
+              <button class="icon submit"><span class="icon-magnifying-glass"></span></button>
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- END nav -->
+  
+
+  <section class="mb-5" style="margin-top: 50px">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-5">
+          <h1 class="display-4">Donation History Till Date</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+<div class="col-md-9 pl-md-5 pb-5 pl-0 probootstrap-inside" style="margin-right: 100px">
+<div class="container">
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Patient's Name</th>
+      <th scope="col">Patient's ID</th>
+      <th scope="col">Diesease</th>
+      <th scope="col">Assigned Doctor</th>
+      <th scope="col">Doctor Id</th>
+      <th scope="col">Insurance Amount</th>
+      <th scope="col">Donations Received</th>
+      <th scope="col">Date and Time</th>
+    </tr>
+  </thead>
+  {% for data in datas %}
+  <tbody>
+    <tr>
+      <td>{{data.3}}</td>
+      <td>{{data.8}}</td>
+      <td>{{data.4}}</td>
+      <td>{{data.5}}</td>
+      <td>{{data.7}}</td>
+      <td>{{data.1}}</td>
+      <td>{{data.2}}</td>
+      <td>{{data.0}}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table> 
+</div>
+</div> 
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="probootstrap-subscribe" style="margin-top: 80px">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-12">
+          <h2 class="h1 text-white">Subscribe Newsletter</h2>
+          <p class="lead text-white">Far far away, behind the word mountains, far from the countries Vokalia.</p>
+        </div>
+      </div>
+      <form action="#" method="post">
+        <div class="row">
+          <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Name">    
+          </div>
+          <div class="col-md-4 mb-md-0 mb-3">
+            <input type="text" class="form-control" placeholder="Email">
+          </div>
+          <div class="col-md-4">
+            <input type="submit" value="Subscribe" class="btn btn-primary btn-block">
+          </div>
+        
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="probootstrap-footer">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-3">
+          <h3 class="heading">Latest Blog</h3>
+          <ul class="list-unstyled probootstrap-footer-recent-post">
+            <li>
+              <a href="#"><span class="date">November 15, 2017</span> The practice of medicine is a lot like parenting </a>
+            </li>
+            <li>
+              <a href="#"><span class="date">November 15, 2017</span>Physicians: Want to overcome burnout? Start studying business. </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h3 class="heading">Head Office</h3>
+          <p class="mb-5">98 West 21th Street, Suite 721 New York NY 10016</p>
+          <h3 class="heading text-white">Open</h3> 
+          <p>
+            Mon-Fri 7:30-18:00 <br>
+            Sat 7:30-18:00 <br>
+            Sun 7:30-18:00
+          </p>
+        </div>
+        <div class="col-md-3">
+          <h3 class="heading">Quick Links</h3>
+          <ul class="list-unstyled probootstrap-footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Department</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h3 class="heading">Follow us</h3>
+          <ul class="probootstrap-footer-social">
+            <li><a href="#"><span class="icon-twitter"></span></a></li>
+            <li><a href="#"><span class="icon-facebook"></span></a></li>
+            <li><a href="#"><span class="icon-linkedin"></span></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- END row -->
+      <div class="row probootstrap-copyright">
+        <div class="col-md-12">
+          <p><small>&copy; 2017 <a href="https://uicookies.com/" target="_blank">uiCookies Health</a>. All Rights Reserved. Designed &amp; Developed by <a href="https://uicookies.com/" target="_blank">uicookies.com</a> (please don't remove credit, see <a href="https://uicookies.com/license/" target="_blank">license</a>)  <br> Demo Images <a href="https://pexels.com/">Pexels</a> </small></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  
+  <script src="{% static 'main_app/js/jquery-3.2.1.min.js'%}"></script>
+  <script src="{% static 'main_app/js/popper.min.js'%}"></script>
+  <script src="{% static 'main_app/js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'main_app/js/owl.carousel.min.js'%}"></script>
+  <script src="{% static 'main_app/js/jquery.waypoints.min.js'%}"></script>
+  <script src="{% static 'main_app/js/bootstrap-datepicker.js'%}"></script>
+  <script src="{% static 'main_app/js/jquery.animateNumber.min.js'%}"></script>
+
+  <script src="{% static 'main_app/js/main.js' %}"></script>
+ </div> 
+</body>
+</html>
+
+
+      

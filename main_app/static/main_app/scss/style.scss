@@ -1,0 +1,1044 @@
+$font-serif: 'Crimson Text', serif;
+$font-sans-serif: 'Open Sans', sans-serif;
+
+$xl: 1140px;
+$lg: 960px;
+$md: 768px;
+$sm: 576px;
+$white: #fff;
+$black: #000;
+$primary: #32609e;
+$secondary: #4fb5e6;
+html {
+	overflow-x: hidden;
+}
+body {
+	overflow-x: hidden;
+	font-family: $font-sans-serif;
+	line-height: 1.8;
+	font-size: 16px;
+	background: $white;
+	color: lighten(#545d61, 20%);
+}
+a {
+	transition: .3s all ease;
+	color: $primary;
+	&:hover {
+		text-decoration: none;
+		color: $primary;
+	}
+}
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+	line-height: 1.45;
+	font-weight: normal;
+	color: $primary;
+}
+h1, .h1 {
+	font-size: 30px;
+}
+h2, .h2 {
+	font-size: 24px;
+}
+h3, .h3 {
+	font-size: 22px;
+}
+h5, .h4 {
+	font-size: 20px;
+}
+h5, .h5 {
+	font-size: 18px;
+}
+
+.text-primary {
+	color: $primary!important;
+}
+
+.text-secondary {
+	color: $secondary!important;
+}
+
+.navbar-brand {
+	text-transform: uppercase;
+	letter-spacing: .1em;
+}
+.probootstrap-navbar-dark {
+	// background: transparent!important;
+	background: $primary!important;
+	position: relative;
+	left: 0;
+	right: 0;
+	z-index: 3;
+	padding-top: 0;
+	padding-bottom: 0;
+	@media screen and (max-width: 991px) {
+		top: 0;
+		position: relative;
+	}
+	.navbar-nav {
+		> .nav-item {
+			> .nav-link {
+				font-size: 13px;
+				letter-spacing: .1em;
+				padding-top: 12px;
+				padding-bottom: 12px;
+				padding-left: 20px;
+				padding-right: 20px;
+				text-transform: uppercase;
+				@media screen and (max-width: $lg) {
+					padding-top: 12px;
+					padding-bottom: 12px;
+					padding-left: 0px;
+					padding-right: 0px;
+				}
+			}
+			&.probootstrap-cta {
+				a {
+					color: $white;
+				}
+			}
+			&.probootstrap-seperator {
+				position: relative;
+				margin-left: 20px;
+				padding-left: 20px;
+				@media screen and (max-width: $lg) {
+					padding-left: 0;
+					margin-left: 0;
+				}
+				&:before {
+					position: absolute;
+					content: "";
+					top: 10px;
+					bottom: 10px;
+					left: 0;
+					width: 2px;
+					background: rgba($white, .05);
+					@media screen and (max-width: $lg) {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	.navbar-toggler {
+		border: none;
+		color: rgba(255,255,255,.5)!important;
+		cursor: pointer;
+		padding-right: 0;
+		text-transform: uppercase;
+		font-size: 16px;
+		letter-spacing: .1em;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		padding-left: 0;
+		&:focus, &:active {
+			outline: none;
+		}
+	}
+	.probootstrap-search-form {
+		@media screen and (max-width: $sm) {
+			margin-bottom: 20px;
+		}
+		.form-group {
+			position: relative;
+			margin-bottom: 0!important;
+			button {
+				border: none;
+				background: none;
+				&:active, &:focus {
+					outline: none;
+				}
+			}
+			.icon {
+				position: absolute;
+				right: 10px;
+				top: 50%;
+				font-size: 20px;
+				transform: translateY(-50%);
+				color: $white;
+				line-height: 0;
+			}
+			.form-control {
+				color: $white!important;
+				border: none;
+				background: lighten($primary, 5%)!important;
+				border-radius: 0;
+				padding-left: 20px;
+				padding-right: 55px;
+				font-size: 16px;
+				transition: .3s all ease;
+				&:focus, &:active {
+					background: lighten($primary, 7%)!important;
+				}
+				&::-webkit-input-placeholder { 
+				  color: rgba(255,255,255,.7);
+				  font-size: 16px; 
+				}
+				&::-moz-placeholder { 
+				  color: rgba(255,255,255,.7);
+				  font-size: 16px; 
+				}
+				&:-ms-input-placeholder { 
+				  color: rgba(255,255,255,.7);
+				  font-size: 16px; 
+				}
+				&:-moz-placeholder { 
+				  color: rgba(255,255,255,.7);
+				  font-size: 16px; 
+				}
+			}
+		}
+	}
+}
+
+.probootstrap-blog-appointment {
+	background: lighten(#ccc, 15%);
+	background: $secondary;
+	padding: 4em 0 0 0;
+	.arrow-link {
+		&:hover {
+			color: $white;
+			i {
+				color: $white;
+			}
+		}
+	}
+	.probootstrap-blog-list {
+		li {
+			margin-bottom: 30px;
+			h2 {
+				a {
+					&:hover {
+						color: $white;
+					}
+				}
+				.date {
+						display: block;
+						font-size: 16px;
+						color: rgba($white, .5);
+					}
+			}
+		}
+	}
+	.probootstrap-aside-stretch-right {
+		position: relative;
+		margin-top: -9em;
+		@media screen and (max-width: $md) {
+			margin-top: 0;
+		}
+	}
+	.probootstrap-form-appointment {
+		.form-group {
+			position: relative;
+			.icon {
+				color: $secondary;
+				top: 50%;
+				transform: translateY(-50%);
+				position: absolute;
+				right: 10px;
+			}
+		}
+		.form-control {
+			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+				color: rgba(255,255,255,.7);
+				font-size: 16px; 
+			}
+			&::-moz-placeholder { /* Firefox 19+ */
+				color: rgba(255,255,255,.7);
+				font-size: 16px; 
+			}
+			&:-ms-input-placeholder { /* IE 10+ */
+				color: rgba(255,255,255,.7);
+				font-size: 16px; 
+			}
+			&:-moz-placeholder { /* Firefox 18- */
+				color: rgba(255,255,255,.7);
+				font-size: 16px; 
+			}
+		}
+	}
+}
+
+.probootstrap-form {
+	.form-control {
+		border: 1px solid #ccc;
+		color: lighten(#545d61, 20%)!important;
+		border-radius: 4px;
+		&:active, &:focus {
+			border: 1px solid $primary;
+		}
+	}
+}
+
+
+.probootstrap-features-1 {
+	position: relative;
+	margin-bottom: -5em;
+	z-index: 2;
+	.container {
+		box-shadow: 0 0 50px 0 rgba(0,0,0,.1) ;
+	}
+	.probootstrap-feature-item {
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		position: relative;
+		@media screen and (max-width: $md) {
+			height: 200px;
+		}
+		&:before {
+			background: rgba(0,0,0,.2);
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+		.probootstrap-feature-item-text {
+			position: absolute;
+			bottom: 20px;
+			left: 20px;
+			.icon {
+				i {
+					color: $white;
+				}
+			}
+		}
+		h2 {
+			font-size: 20px;
+			text-transform: uppercase;
+			letter-spacing: .2em;
+			color: $white;
+			span {
+				display: block;
+				font-size: 13px;
+				color: rgba(255,255,255,.6);
+			}
+		}
+	}
+	.probootstrap-opening {
+		padding: 2em 1em;
+		background: $secondary;
+		h2 {
+			font-size: 20px;
+			text-transform: uppercase;
+			letter-spacing: .2em;
+			color: $white;
+			span {
+				display: block;
+				font-size: 12px;
+				color: rgba(255,255,255,.5);
+			}
+		}
+		.probootstrap-schedule {
+			margin-bottom: 0;
+			li {
+				position: relative;
+				display: block;
+				color: $white;
+				text-transform: uppercase;
+				border-bottom: 1px dotted rgba(255,255,255,.2);
+				padding: 10px 0;
+				span {
+					position: absolute;
+					right: 0;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+			}
+		}
+	}
+}
+
+.probootstrap-services {
+	> div {
+		> div {
+			> div {
+				padding-top: 9em!important;
+				&.probootstrap-inside {
+					padding-top: 1em!important;
+				}
+			}
+		}
+	}
+}
+
+.probootstrap-contact-phone {
+	font-size: 30px;
+	color: $secondary;
+	.icon {
+		border-radius: 50%;
+		width: 40px;
+		height: 40px;
+		border: 2px solid $secondary;
+		position: relative;
+		i {
+			top: 50%;
+			left: 50%;
+			color: $secondary;
+			font-size: 18px;
+			transform: translate(-50%,-50%);
+			position: absolute;
+		}
+	}
+	.probootstrap-text {
+		margin-top: -10px;
+	}
+	a {
+		color: $secondary;
+	}
+	small {
+		font-size: 13px;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+	}
+}
+.arrow-link {
+	position: relative;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: .2em;
+	i {
+		transition: .3s all ease;
+		position: relative;
+		left: 0;
+	}
+	&:hover {
+		i {
+			left: 10px;
+		}
+	}
+}
+
+.bg-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.probootstrap-cover {
+  // background: lighten( $black, 10%);
+  @extend .bg-image;
+ 
+  background-position: center center;
+ 	
+	.probootstrap-heading {
+		font-size: 45px;
+		line-height: 1.34;
+		color: $white;
+		@media screen and (max-width: $md) {
+			font-size: 37px;
+			line-height: 1.3;
+		}
+	}
+	.probootstrap-subheading, p {
+		color: rgba($white, .5);
+	}
+  .btn {
+		@media screen and (max-width: $md) {
+			width: 100%!important;
+			border: 1px solid red;
+		}
+	}
+	a {
+		position: relative;
+		color: $white;
+		&:before {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: $primary;
+			height: 2px;
+			content: " ";
+		}
+	}
+	&.overlay {
+		position: relative;
+		&:before {
+			content: "";
+			background: rgba($black,.6);
+			position: absolute;
+			top: 0; 
+			left: 0;
+			bottom: 0;
+			right: 0;
+		}
+	}
+	.probootstrap-vh-100 {
+		min-height: 700px!important;
+	}
+}
+
+.probootstrap-uppercase {
+	letter-spacing: .1em;
+	font-size: 30px;
+}
+
+.btn-outline-primary {
+	border-color: $primary!important;
+	color: $primary;
+	&:hover {
+		background: none;
+		color: $primary;
+	}
+}
+.btn-outline-secondary {
+	border-color: $secondary!important;
+	color: $secondary;
+	&:hover {
+		background: none;
+		color: $secondary;
+	}
+}
+.btn {
+	border-radius: 4px;
+	padding: 20px 30px;
+	font-size: 12px;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+	font-weight: bold;
+	cursor: pointer;
+	&.btn-sm {
+		padding: 10px 20px;
+		font-size: 12px;
+	}
+	&:before {
+		display: none;
+	}
+	&:hover, &:active, &:focus {
+		outline: none;
+		box-shadow: none;
+	}
+	&.btn-primary {
+		background: $primary;
+		border-color: $primary;
+		color: $white;
+		&:hover, &:focus, &:active {
+			border-color: darken($primary, 10%);
+			background: darken($primary, 10%);
+		}
+	}
+	&.btn-secondary {
+		background: $secondary;
+		border-color: $secondary;
+		color: $white;
+		&:hover, &:focus, &:active {
+			border-color: darken($secondary, 10%);
+			background: darken($secondary, 10%);
+		}
+	}
+	&.btn-outline-white {
+		border-color: rgba($white, .2);
+		background: none;
+		&:hover, &:focus, &:active {
+			background: $white;
+			border-color: $white;
+			color: $black;
+		}
+	}
+}
+.probootstrap-aside-stretch-left,
+.probootstrap-aside-stretch-right {
+	background: $primary;
+	a {
+		color: $secondary;
+		&:hover {
+			color: $white;
+		}
+	}
+	&:before {
+		position: absolute;
+		top: 0;
+		right: 100%;
+		bottom: 0;
+		background: $primary;
+		content: "";
+		width: 370%;
+	}
+	h2 {
+		// font-size: 18px;
+		letter-spacing: .1em;
+		text-transform: uppercase;
+		color: rgba(255,255,255,.9);
+		padding-bottom: 20px;
+		margin-bottom: 30px;
+		position: relative;
+		&:after {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			content: "";
+			width: 60px;
+			height: 2px;
+			background: rgba(255,255,255,.2);
+		}
+	}
+	.probootstrap-light {
+		li {
+			margin-bottom: 10px;
+			display: block;
+			a {
+				color: $secondary;
+				display: block;
+				&:hover {
+					color: $white;
+				}
+			}
+			&.active {
+				a {
+					color: $white!important;
+				}
+			}
+		}
+	}
+}
+.probootstrap-aside-stretch-right {
+	&:before {
+		right: inherit;
+		left: 100%;
+	}
+}
+
+.probootstrap-subscribe {
+	background: $secondary;
+	padding: 4em 0;
+	.form-control {
+		&::-webkit-input-placeholder { 
+		  color: rgba(255,255,255,.7);
+		  font-size: 16px; 
+		}
+		&::-moz-placeholder { 
+		  color: rgba(255,255,255,.7);
+		  font-size: 16px; 
+		}
+		&:-ms-input-placeholder { 
+		  color: rgba(255,255,255,.7);
+		  font-size: 16px; 
+		}
+		&:-moz-placeholder { 
+		  color: rgba(255,255,255,.7);
+		  font-size: 16px; 
+		}
+	}
+}
+
+.prbootstrap-team {
+	background: $primary;
+	transition: .2s all ease;
+	position: relative;
+	top: 0;
+	&:hover {
+		background: $secondary;
+		box-shadow: 0 0 40px 0 rgba(0,0,0,.2);
+		position: relative;
+		z-index: 2;
+		top: -20px;
+		@media screen and (max-width: $md) {
+
+			top: 0;
+		}
+	}
+	.probootstrap-person-text {
+		padding: 20px;
+		float: left;
+		width: 100%;
+		text-align: center;
+		@media screen and (max-width: $sm) {
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+		.title {
+			display: block;
+			text-transform: uppercase;
+			color: rgba(255,255,255,.5);
+			font-size: 12px;
+			letter-spacing: .1em;
+		}
+		.name {
+			font-size: 18px;
+			color: $white;
+			line-height: 1.2;
+		}
+	}
+}
+
+.form-control {
+	border: none;
+	border-bottom: 1px solid rgba($white, .2);
+	height: 55px;
+	border-radius: 0px;
+	background: none!important;
+	color: $white!important;
+	font-size: 16px;
+	&:focus, &:active {
+		border-bottom: 1px solid rgba($white, 1);
+	}
+}
+textarea {
+	height: inherit!important;
+}
+.probootstrap-vh-100 {
+  height: 100vh;
+  @media screen and (max-width: $lg) {
+  	height: inherit;
+  	padding-top: 5em;
+  	padding-bottom: 5em;
+  }
+}
+.probootstrap-vh-75 {
+  height: 75vh;
+  @media screen and (max-width: $lg) {
+  	height: inherit;
+  	padding-top: 5em;
+  	padding-bottom: 5em;
+  }
+}
+
+.probootstrap-animate {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.bg-primary {
+	background: $primary!important;
+}
+.probootstrap-section.overlay {
+	position: relative;
+	.heading {
+		color: $white;
+		font-size: 50px;
+	}
+	&:before {
+		background: rgba($black,.5);
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+.probootstrap-section,
+.probootstrap-footer {
+	padding: 7em 0 7em 0;
+	&.probootstrap-slant {
+		padding: 7em 0 22em 0;
+	}
+
+	.probootstrap-heading {
+		font-size: 40px;
+		line-height: 1.5;
+		@media screen and (max-width: $md) {
+			font-size: 30px;
+		}
+	}
+	&.bg-light {
+		background: lighten($black, 95%)!important;
+	}
+
+}
+.probootstrap-bg-dark {
+	background: darken(#2A363B, 2%);
+}
+.probootstrap-footer {
+	a {
+		color: $secondary;
+	}
+	background: $primary;
+	// color: rgba(255,255,255, .5);
+	color: $secondary!important;
+	p {
+		color: $secondary!important;
+	}
+	.heading {
+		font-size: 12px;
+		font-weight: bold;
+		color: $white;
+		letter-spacing: .2em;
+		text-transform: uppercase;
+	}
+	.probootstrap-copyright {
+		p {
+			color: rgba($secondary, .7)!important;
+			a {
+				color: $white!important;
+			}
+		}
+	}
+}
+.probootstrap-footer-recent-post {
+	li {
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		display: block;
+		border-bottom: 1px solid rgba(255,255,255,.05);
+		a {
+			display: block;
+			color: $secondary;
+			span {
+				color: rgba($secondary,.4)	;
+				display: block;
+			}
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+}
+
+.probootstrap-footer {
+	font-size: 16px;
+	.probootstrap-footer-logo {
+		text-transform: uppercase;
+		letter-spacing: .1em;
+	}
+	.probootstrap-footer-widget {
+		h2 {
+			font-weight: normal;
+		}
+	}
+	p {
+		color: rgba($white, .3);
+	}
+	a {
+		color: rgba($white, .3);
+		&:hover {
+			color: $primary;
+		}
+	}
+	.probootstrap-heading {
+		font-size: 24px;
+	}
+	.probootstrap-heading-2 {
+		font-size: 14px;
+		font-weight: bold;
+		letter-spacing: .05em;
+		text-transform: uppercase;
+		color: rgba(255,255,255,.6);
+	}
+}
+
+
+
+.probootstrap-footer-social {
+	padding: 0;
+	margin: 0;
+	li {
+		list-style: none;
+		margin: 0 10px 10px 0;
+		display: inline-block;
+		a {
+			font-size: 30px;
+			position: relative;
+			color: $secondary;
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+}
+.probootstrap-footer-links {
+	li {
+		margin-bottom: 10px;
+	}
+	a {
+		color: $secondary;
+		&:hover, &:active, &:focus {
+			color: $white;
+		}
+	}
+}
+.footer-small-nav {
+	> li {
+		display: inline-block;
+		a {
+			margin: 0 10px 10px 0;
+			&:hover, &:focus {
+				color: $primary;
+			}
+		}
+	}
+}
+.media {
+	.probootstrap-icon {
+		width: 100px;
+		span {
+			color: $primary;
+		}
+	}
+}
+.probootstrap-media {
+	background: $white;
+	border-radius: 5px;
+	&.text-center {
+		.probootstrap-icon {
+			margin: 0 auto;
+		}
+	}
+}
+.probootstrap-overflow-hidden {
+	overflow: hidden;
+}
+
+.padding-top-bottom {
+	padding-top: 120px;
+	padding-bottom: 120px;
+}
+
+
+// owl
+.probootstrap-owl {
+	position: relative;
+	z-index: 1;
+	.owl-dots, .owl-nav {
+
+	}
+	.owl-nav {
+		position: absolute;
+		top: 50%;
+		// margin-top: -25px;
+		margin-top: -50px;
+		z-index: 10;
+		left: 0;
+		right: 0;
+		opacity: 0;
+		visibility: hidden;
+		transition: .3s all ease;
+		.owl-prev, 
+		.owl-next {
+			position: absolute;
+			font-size: 30px;
+			background: $primary;
+			color: $white;
+			padding: 10px;
+			line-height: 0;
+		}
+		.owl-prev {
+			left: 0;
+		}
+		.owl-next {
+			right: 0;
+		}
+	}
+	.owl-dots {
+		position: relative;
+		text-align: center;
+		margin-top: 30px;
+		.owl-dot {
+			display:inline-block;
+			zoom:1;
+			span {
+				width: 10px;
+				height: 10px;
+				background: #ccc;
+				border-radius: 50%;
+				display: inline-block;
+				margin: 5px 7px;
+			}
+			&.active {
+				span {
+					background: $primary;
+				}
+			}
+		}
+	}
+	&:hover {
+		.owl-nav {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+#map {
+	// border: 1px solid red;
+	@media screen and (max-width: $md) {
+		height: 400px;
+	}
+}
+.probootstrap-counter {
+	.probootstrap-number {
+		display: block;
+		font-size: 72px;
+		font-weight: 300;
+		color: $primary;
+	}
+	.probootstrap-label {
+		font-size: 16px;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+		color: darken(#ccc, 10%);
+	}
+}
+
+#probootstrap-loader {
+	position: fixed;
+	width:  96px;
+	height: 96px;
+	left:  50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(255,255,255,0.9);
+	box-shadow: 0px 24px 64px rgba(0,0,0,0.24);
+	border-radius:16px;
+	opacity: 0; 
+	visibility: hidden;
+	transition: opacity .2s ease-out, visibility 0s linear .2s;
+	z-index:1000;
+}
+
+#probootstrap-loader.fullscreen {
+	padding:  0;
+	left:  0;
+	top:  0;
+	width:  100%;
+	height: 100%;
+	transform: none;
+	background-color: #fff;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+#probootstrap-loader.show {
+	transition: opacity .4s ease-out, visibility 0s linear 0s;
+	visibility: visible;
+	opacity: 1;
+}
+
+#probootstrap-loader .circular {
+  animation: loader-rotate 2s linear infinite;
+  position: absolute;
+  left:  calc(50% - 24px);
+  top:  calc(50% - 24px);
+  display: block;
+  transform: rotate(0deg);
+}
+
+#probootstrap-loader .path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: loader-dash 1.5s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+@keyframes loader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -136px;
+  }
+}
