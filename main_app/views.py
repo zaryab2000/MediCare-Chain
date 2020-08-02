@@ -662,6 +662,7 @@ def base(request):
 
 def patients(request):
 	patientsList = []
+	docs = getDoctorId()
 	pids = getPatientId()
 	for pid in pids:
 		patient=contract.functions.patientList(pid).call()
@@ -674,7 +675,8 @@ def patients(request):
 		new_list.append(data)
 	# print(new_list)
 	context = {
-		"patients":new_list
+		"patients":new_list,
+		"doctors":docs
 	}
 	return render(request, 'main_app/patients.html',context)
 
@@ -736,6 +738,25 @@ def donationData(request):
 		"datas":new_list
 	}
 	return render(request, 'main_app/donationTable.html',context)
+
+def donationPage(request):
+	patientsList = []
+	pids = getPatientId()
+	for pid in pids:
+		patient=contract.functions.patientList(pid).call()
+		patientsList.append(patient)
+	new_list = []
+	for data in patientsList:
+		old_time = int(data[0])
+		real_time = datetime.utcfromtimestamp(old_time).strftime('%Y-%m-%d %H:%M:%S')
+		data[0]=real_time
+		new_list.append(data)
+	# print(new_list)
+	context = {
+		"patients":new_list,
+		
+	}
+	return render(request, 'main_app/donateTopatients.html',context)
 
 def withdrawData(request):
 	new_list = []

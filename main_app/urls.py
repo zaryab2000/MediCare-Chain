@@ -13,6 +13,7 @@ urlpatterns = [
 	path('donate/<str:pid>',views.donate, name="donate"),
 	path('patientData/',views.patientDatabase,name="patientDatabase"),
 	path('donationData/', views.donationData, name="donationData"),
+	path('donationPage/',views.donationPage,name="donationPage"),
 	path('withdrawData/', views.withdrawData, name="withdrawData"),
 	path('withdrawAmount/<str:pid>',views.withdrawAmount,name="withdrawAmount"),
 	path('transferDonation/<str:pid>', views.transferDonation,name="transferDonation")
