@@ -1,9 +1,46 @@
 # Medicare Chain
-MediCare Chain DAPP is a decentralized application built on top of Ethereum that aims to provide a HealthCare Solution by ensuring a transaparent and reliable system of providing insurance as well as donations to the patients, with utmost efficiency and zero involvement of any third party.
+MediCare Chain is a decentralized application built on top of Ethereum that aims to provide a HealthCare Solution by ensuring a transaparent and reliable system of providing insurance as well as donations to the patients, with utmost efficiency and zero involvement of any third party.
 
-It maintains a proper ledger of donations received, funds withdrawn as well as insurance details and stores them on Blockchain, thus ensuring immutability and security from any tamper with the financial records.
+## What exactly is the Problem in Health Care Sector?
+Truth be told, the Health Care sector is one of those rare sectors where we can't afford any sort of chaos since in this sector we have lives at stake.
 
-This applications maintains an immutable record of patients along with their neccessary medical details and stores them on the Blockchan. Moreover, this application uses InterPlanetary File System(IPFS) to store any kind of Medical Certificates, X-rays or other Medical documents related to the Patient. 
+***That problem is the current paradigm of the medical insurance service and financial solutions for the patients.***
+
+With the advancement of technology and medical science, and not every patient can afford the costly medical facilities.
+
+**According to a *CarePayment Research Survey, it was quite clearly found that almost 64% of all the patients in America either avoids or delays any medical care because of the high cost*.**
+
+**While 61% of them are the ones who can't even think of affording medical care.**
+
+And this statistics remains same or even worse for many other underdeveloped countries.
+
+***While the insurance and donations do help patients to get the best possible medical facility, there still lies an enormously large chain of Middlemen, central authorities as well as third parties at multiple levels in this procedure.***
+
+Therefore, we need a system that eradicates these third parties and allow the patient to be in control of the complete insurance or donation amount so that they can avail better medical facilities.
+
+## Solution By Medicare Chain
+Medicare Chain address the issue of third parties and centralized authorities involved in the medical transactions in Health Care sector.
+
+Its utmost priority is to enable the patients to get a complete control over their entire medical funds without loosing it to any third party. 
+
+So that the patient can avail the health care facility that they deserve.
+
+## 3 Main tools of Medicare Chain
+* **Decentralization**: Eradicates any control of central authorities over the medical funds or donation amounts.
+Thus, ensures utmost security from any tamper with medical data
+
+* **Smart Contract**:  Handles all the transactions of the funds between different parties without third party interference. Thus ensures reliability and trust in the system.
+
+* **Blockchain**: Stores every single detail of all transactions on the Blockchain and makes it immutable.
+
+## Distribution of Power in Medicare Chain
+
+Admin can add new patients to the Blockchain, but cannot withdraw patient’s funds nor access their medical records.
+
+Doctors can withdraw funds(when necessary) , but cannot add or handle patient’s details.
+
+Donors can donate funds to only patients, but can neither handle or examine medical data of the patients.
+
 
 ## Functionalities of this DAPP
 
@@ -25,6 +62,10 @@ Doctor's digital sign on a Patient also makes it legit and  enables the patient 
 
 ![gif(8)](https://user-images.githubusercontent.com/42082608/84389223-5cd46180-ac13-11ea-8fbc-a2b67a5d7ee1.gif)
 
+## Restricting access to medical data
+
+![gif(9)](https://user-images.githubusercontent.com/42082608/89157303-eeb07900-d589-11ea-82ac-7e3c19d7b70f.gif)
+
 
 ### Donating To Patients
 This functionality of donating cryptocurrency to the patients is available for anyone with a Ethereum Account and some funds.
@@ -33,6 +74,9 @@ The amount donated by anyone on the network gets added to Donated Amount section
 
 ![gif(6)](https://user-images.githubusercontent.com/42082608/84385518-59d67280-ac0d-11ea-86e6-c39be3d00b54.gif)
 
+**NOTE**
+### Donated Funds aren't Withdrawable
+![gif(10)](https://user-images.githubusercontent.com/42082608/89158174-574c2580-d58b-11ea-8f04-426f17663c02.gif)
 ### Withdrawing Amount from Patient's Funds
 This is one of the most imperative functionalities of this DAPP.
 The funds are withdrawn from a Patient only when required for medical expanses.
