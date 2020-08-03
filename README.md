@@ -1,4 +1,4 @@
-# Medical_Insurance_on_Ethereum_Blockchain
+# Medicare Chain
 MediCare Chain DAPP is a decentralized application built on top of Ethereum that aims to provide a HealthCare Solution by ensuring a transaparent and reliable system of providing insurance as well as donations to the patients, with utmost efficiency and zero involvement of any third party.
 
 It maintains a proper ledger of donations received, funds withdrawn as well as insurance details and stores them on Blockchain, thus ensuring immutability and security from any tamper with the financial records.
