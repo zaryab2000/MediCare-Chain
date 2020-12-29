@@ -111,16 +111,11 @@ contract HealthCareStore is Ownable{
         require(doctorList[msg.sender]);
         require(patientList[_pid].doctorAddress == msg.sender);
         require(patientList[_pid].insuranceAmount >= _amountRequired);
-        
-
         address payable recepientDoctor = msg.sender;
-        patientList[_pid].insuranceAmount -= _amountRequired;
-        
-        recepientDoctor.transfer(_amountRequired);
-        
+        patientList[_pid].insuranceAmount -= _amountRequired;   
         withdrawCount++;
         withdrawHistoryList[withdrawCount] = withdrawHistory(_pid, patientList[_pid].doctorName,now,_amountRequired,patientList[_pid].name);
-        
+        recepientDoctor.transfer(_amountRequired);
         emit usedInsurance(_pid, _amountRequired);
     }
     //DON0R FUNCTION
