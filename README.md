@@ -1,7 +1,7 @@
 # Medicare Chain
 MediCare Chain is a decentralized application built on top of Ethereum that aims to provide a HealthCare Solution by ensuring a transaparent and reliable system of providing insurance as well as donations to the patients, with utmost efficiency and zero involvement of any third party.
 
-## What exactly is the Problem in Health Care Sector?
+## What exactly are the Hurdles in Health Care Sector?
 Truth be told, the Health Care sector is one of those rare sectors where we can't afford any sort of chaos since in this sector we have lives at stake.
 
 ***That problem is the current paradigm of the medical insurance service and financial solutions for the patients.***
