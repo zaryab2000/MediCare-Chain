@@ -1,7 +1,7 @@
 pragma solidity ^0.6.0;
 
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
-
+// Need to update the TOKENMICS PART
 contract HealthCareStore is Ownable{
     
     uint public pidCount;
