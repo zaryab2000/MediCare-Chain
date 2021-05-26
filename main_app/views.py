@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.shortcuts import render,redirect,HttpResponse
 
-
+# Matic URL
 url = 'https://rpc-mumbai.matic.today'
 web3 = Web3(Web3.HTTPProvider(url))
 address = web3.toChecksumAddress("0x9354d04e66386693CEAEC931bBDB7b1b369fF1A7")
